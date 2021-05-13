@@ -24,6 +24,15 @@ class m130524_201442_init extends Migration
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
         ], $tableOptions);
+
+        $user = new common\models\User();
+        $user->username = 'admin';
+        $user->email = 'admin@ya.ru';
+        $user->setPassword('admin');
+        $user->generateAuthKey();
+        $user->status = 10;
+        $user->save();
+
     }
 
     public function down()
