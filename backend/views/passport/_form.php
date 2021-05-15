@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Passport */
@@ -12,7 +13,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_employee')->textInput() ?>
+    <?= $form->field($model, 'id_employee')->dropDownList($employee_list, ['prompt'=>'Выберите ...']) ?>
 
     <?= $form->field($model, 'series')->textInput() ?>
 

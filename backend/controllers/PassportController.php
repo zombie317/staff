@@ -2,12 +2,14 @@
 
 namespace backend\controllers;
 
+use common\models\Employee;
 use Yii;
 use common\models\Passport;
 use common\models\search\PassportSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 
 /**
  * PassportController implements the CRUD actions for Passport model.
@@ -66,12 +68,20 @@ class PassportController extends Controller
     {
         $model = new Passport();
 
+        $employee = Employee::find()->all();
+        foreach ($employee as &$item)
+        {
+            $item->full_name = $item->getEmployeeFullName();
+        }
+        $employee_list = ArrayHelper::map($employee,'id', 'full_name');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'employee_list' => $employee_list,
         ]);
     }
 
@@ -86,12 +96,20 @@ class PassportController extends Controller
     {
         $model = $this->findModel($id);
 
+        $employee = Employee::find()->all();
+        foreach ($employee as &$item)
+        {
+            $item->full_name = $item->getEmployeeFullName();
+        }
+        $employee_list = ArrayHelper::map($employee,'id', 'full_name');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'employee_list' => $employee_list,
         ]);
     }
 

@@ -30,6 +30,7 @@ class Employee extends \yii\db\ActiveRecord
     const FEMALE =      false;
     const FEMALE_NAME = 'Женщина';
 
+    public $full_name;
     /**
      * {@inheritdoc}
      */
