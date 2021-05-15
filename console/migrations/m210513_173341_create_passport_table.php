@@ -18,8 +18,8 @@ class m210513_173341_create_passport_table extends Migration
         $this->createTable('{{%passport}}', [
             'id' => $this->primaryKey(),
             'id_employee' => $this->integer()->notNull(),
-            'series' => $this->integer(4)->notNull(),
-            'number' => $this->integer(6)->notNull(),
+            'series' => $this->integer()->notNull(),
+            'number' => $this->integer()->notNull(),
             'name' => $this->string()->notNull(),
             'date' => $this->date()->notNull(),
         ]);
