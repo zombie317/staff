@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "type_vacation".
  *
  * @property int $id
- * @property string $number
+ * @property string $name
  *
  * @property Vacation[] $vacations
  */
@@ -28,8 +28,8 @@ class TypeVacation extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['number'], 'required'],
-            [['number'], 'string', 'max' => 10],
+            [['name'], 'required'],
+            [['name'], 'string', 'max' => 255],
         ];
     }
 
@@ -40,7 +40,7 @@ class TypeVacation extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'number' => 'Number',
+            'name' => 'Название',
         ];
     }
 

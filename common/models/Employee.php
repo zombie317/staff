@@ -24,6 +24,12 @@ use Yii;
  */
 class Employee extends \yii\db\ActiveRecord
 {
+    const MALE =        true;
+    const MALE_NAME =   'Мужчина';
+
+    const FEMALE =      false;
+    const FEMALE_NAME = 'Женщина';
+
     /**
      * {@inheritdoc}
      */
@@ -54,13 +60,13 @@ class Employee extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'number' => 'Number',
-            'last_name' => 'Last Name',
-            'first_name' => 'First Name',
-            'middle_name' => 'Middle Name',
-            'gender' => 'Gender',
-            'address' => 'Address',
-            'phone' => 'Phone',
+            'number' => 'Табельный номер',
+            'last_name' => 'Фамилия',
+            'first_name' => 'Имя',
+            'middle_name' => 'Отчество',
+            'gender' => 'Пол',
+            'address' => 'Домашний адрес',
+            'phone' => 'Номер телефона',
         ];
     }
 
@@ -112,5 +118,21 @@ class Employee extends \yii\db\ActiveRecord
     public function getVacations()
     {
         return $this->hasMany(Vacation::className(), ['id_employee' => 'id']);
+    }
+
+    public function getEmployeeFullName()
+    {
+        $full_name = $this->last_name . ' ' . $this->first_name . ' ' . $this->middle_name;
+        return $full_name;
+    }
+
+    public function getGenderName($gender)
+    {
+        $gender_name = null;
+        $gender === self::MALE ?
+            $gender_name = self::MALE_NAME : ($gender === self::FEMALE ?
+                $gender_name = self::FEMALE_NAME : $gender_name);
+
+        return $gender_name;
     }
 }

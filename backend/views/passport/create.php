@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Passport */
 
-$this->title = 'Create Passport';
-$this->params['breadcrumbs'][] = ['label' => 'Passports', 'url' => ['index']];
+$this->title = 'Создать Паспортные данные';
+$this->params['breadcrumbs'][] = ['label' => 'Паспортные данные', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="passport-create">

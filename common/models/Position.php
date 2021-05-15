@@ -44,8 +44,8 @@ class Position extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'salary' => 'Salary',
+            'name' => 'Название',
+            'salary' => 'Оклад',
         ];
     }
 

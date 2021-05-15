@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\StaffingPlan */
 
-$this->title = 'Create Staffing Plan';
-$this->params['breadcrumbs'][] = ['label' => 'Staffing Plans', 'url' => ['index']];
+$this->title = 'Создать Штатную единицу';
+$this->params['breadcrumbs'][] = ['label' => 'Штатное расписание', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="staffing-plan-create">

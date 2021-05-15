@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\search\PassportSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Passports';
+$this->title = 'Паспортные данные';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="passport-index">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Passport', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

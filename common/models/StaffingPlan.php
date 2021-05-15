@@ -46,9 +46,9 @@ class StaffingPlan extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_position' => 'Id Position',
-            'id_department' => 'Id Department',
-            'quantity' => 'Quantity',
+            'id_position' => 'Должность',
+            'id_department' => 'Отдел',
+            'quantity' => 'Количество ставок',
         ];
     }
 

@@ -58,14 +58,14 @@ class Dismissal extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'number' => 'Number',
-            'date' => 'Date',
-            'id_employee' => 'Id Employee',
-            'id_firm' => 'Id Firm',
-            'id_position' => 'Id Position',
-            'id_department' => 'Id Department',
-            'article' => 'Article',
-            'cause' => 'Cause',
+            'number' => 'Номер приказа',
+            'date' => 'Дата',
+            'id_employee' => 'Сотрудник',
+            'id_firm' => 'Организация',
+            'id_position' => 'Должность',
+            'id_department' => 'Отдел',
+            'article' => 'Статья',
+            'cause' => 'Причина увольнения',
         ];
     }
 

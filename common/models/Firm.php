@@ -55,17 +55,17 @@ class Firm extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'full_name' => 'Full Name',
-            'short_name' => 'Short Name',
-            'legal_address' => 'Legal Address',
-            'mail_address' => 'Mail Address',
-            'inn' => 'Inn',
-            'kpp' => 'Kpp',
-            'bik' => 'Bik',
-            'bank_account' => 'Bank Account',
-            'email' => 'Email',
-            'phone' => 'Phone',
-            'site' => 'Site',
+            'full_name' => 'Полное наименование ',
+            'short_name' => 'Краткое наименование ',
+            'legal_address' => 'Юридический адрес',
+            'mail_address' => 'Почтовый адрес',
+            'inn' => 'ИНН',
+            'kpp' => 'КПП',
+            'bik' => 'БИК',
+            'bank_account' => 'Расчётный счёт',
+            'email' => 'Электронная почта',
+            'phone' => 'Телефон',
+            'site' => 'Сайт',
         ];
     }
 

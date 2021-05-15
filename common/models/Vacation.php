@@ -57,15 +57,15 @@ class Vacation extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'number' => 'Number',
-            'date' => 'Date',
-            'id_employee' => 'Id Employee',
-            'id_firm' => 'Id Firm',
-            'id_type_vacation' => 'Id Type Vacation',
-            'date_start' => 'Date Start',
-            'date_end' => 'Date End',
-            'quantity_days' => 'Quantity Days',
-            'article' => 'Article',
+            'number' => 'Номер приказа',
+            'date' => 'Дата',
+            'id_employee' => 'Сотрудник',
+            'id_firm' => 'Организация',
+            'id_type_vacation' => 'Вид отпуска',
+            'date_start' => 'Дата начала',
+            'date_end' => 'Дата окончания',
+            'quantity_days' => 'Количество дней',
+            'article' => 'Основание',
         ];
     }
 

@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel common\models\search\FirmSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Firms';
+$this->title = 'Организации';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="firm-index">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Firm', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>

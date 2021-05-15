@@ -47,9 +47,9 @@ class Department extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'room_number' => 'Room Number',
-            'phone' => 'Phone',
+            'name' => 'Название ',
+            'room_number' => 'Номер кабинета',
+            'phone' => 'Телефон',
         ];
     }
 

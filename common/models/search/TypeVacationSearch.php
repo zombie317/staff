@@ -18,7 +18,7 @@ class TypeVacationSearch extends TypeVacation
     {
         return [
             [['id'], 'integer'],
-            [['number'], 'safe'],
+            [['name'], 'safe'],
         ];
     }
 
@@ -61,7 +61,7 @@ class TypeVacationSearch extends TypeVacation
             'id' => $this->id,
         ]);
 
-        $query->andFilterWhere(['ilike', 'number', $this->number]);
+        $query->andFilterWhere(['ilike', 'name', $this->name]);
 
         return $dataProvider;
     }

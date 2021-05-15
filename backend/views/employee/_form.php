@@ -20,14 +20,14 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'middle_name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'gender')->checkbox() ?>
+    <?= $form->field($model, 'gender')->dropDownList([$model::MALE => $model::MALE_NAME, $model::FEMALE => $model::FEMALE_NAME],['prompt'=>'Выберите пол...'] )?>
 
     <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

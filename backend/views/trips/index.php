@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\search\TripsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Trips';
+$this->title = 'Командировки';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="trips-index">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Trips', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Recruitment */
 
-$this->title = 'Create Recruitment';
-$this->params['breadcrumbs'][] = ['label' => 'Recruitments', 'url' => ['index']];
+$this->title = 'Создать Приказ о приеме на работу';
+$this->params['breadcrumbs'][] = ['label' => 'Приказы о приеме', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="recruitment-create">

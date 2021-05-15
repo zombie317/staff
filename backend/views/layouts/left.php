@@ -1,36 +1,50 @@
 <aside class="main-sidebar">
 
     <section class="sidebar">
-        <!-- search form -->
-        <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Search..."/>
-              <span class="input-group-btn">
-                <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-        </form>
-        <!-- /.search form -->
-
         <?= dmstr\widgets\Menu::widget(
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
-                    ['label' => 'Menu', 'options' => ['class' => 'header']],
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
-                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
-                    ['label' => 'Firms', 'icon' => 'dashboard', 'url' => ['/firm'],],
-                    ['label' => 'Employees', 'icon' => 'dashboard', 'url' => ['/employee'],],
-                    ['label' => 'Passports', 'icon' => 'dashboard', 'url' => ['/passport'],],
-                    ['label' => 'Position', 'icon' => 'dashboard', 'url' => ['/position'],],
-                    ['label' => 'Department', 'icon' => 'dashboard', 'url' => ['/department'],],
-                    ['label' => 'Staffing Plan', 'icon' => 'dashboard', 'url' => ['/staffing-plan'],],
-                    ['label' => 'Recruitment', 'icon' => 'dashboard', 'url' => ['/recruitment'],],
-                    ['label' => 'Dismissal', 'icon' => 'dashboard', 'url' => ['/dismissal'],],
-                    ['label' => 'Type Vacation', 'icon' => 'dashboard', 'url' => ['/type-vacation'],],
-                    ['label' => 'Vacation', 'icon' => 'dashboard', 'url' => ['/vacation'],],
-                    ['label' => 'Trips', 'icon' => 'dashboard', 'url' => ['/trips'],],
+                    ['label' => 'Меню', 'options' => ['class' => 'header']],
+                    ['label' => 'Организации', 'icon' => 'building', 'url' => ['/firm'],],
+                    [
+                        'label' => 'Сотрудники',
+                        'icon' => 'users',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Сотрудники', 'icon' => 'user', 'url' => ['/employee'],],
+                            ['label' => 'Паспортные данные', 'icon' => 'id-card', 'url' => ['/passport'],],
+                        ],
+                    ],
+                    [
+                        'label' => 'Приказы',
+                        'icon' => 'file-text',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Приказы о приеме', 'icon' => 'file-text-o', 'url' => ['/recruitment'],],
+                            ['label' => 'Приказы об увольнении', 'icon' => 'file-text-o', 'url' => ['/dismissal'],],
+                            ['label' => 'Отпуска', 'icon' => 'file-text-o', 'url' => ['/vacation'],],
+                            ['label' => 'Командировки', 'icon' => 'file-text-o', 'url' => ['/trips'],],
+                            [
+                                'label' => 'Виды отпусков',
+                                'icon' => 'list',
+                                'url' => '#',
+                                'items' => [
+                                    ['label' => 'Виды отпусков', 'icon' => 'list', 'url' => ['/type-vacation'],],
+                                ],
+                            ],
+                        ],
+                    ],
+                    [
+                        'label' => 'Штат',
+                        'icon' => 'share',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Штатное расписание', 'icon' => 'book', 'url' => ['/staffing-plan'],],
+                            ['label' => 'Должности', 'icon' => 'user-circle-o', 'url' => ['/position'],],
+                            ['label' => 'Отделы', 'icon' => 'bank', 'url' => ['/department'],],
+                        ],
+                    ],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Some tools',

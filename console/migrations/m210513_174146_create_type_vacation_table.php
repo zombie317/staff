@@ -14,7 +14,7 @@ class m210513_174146_create_type_vacation_table extends Migration
     {
         $this->createTable('{{%type_vacation}}', [
             'id' => $this->primaryKey(),
-            'number' => $this->string(10)->notNull(),
+            'name' => $this->string()->notNull(),
         ]);
     }
 

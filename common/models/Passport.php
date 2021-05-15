@@ -48,11 +48,11 @@ class Passport extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_employee' => 'Id Employee',
-            'series' => 'Series',
-            'number' => 'Number',
-            'name' => 'Name',
-            'date' => 'Date',
+            'id_employee' => 'Сотрудник',
+            'series' => 'Серия',
+            'number' => 'Номер',
+            'name' => 'Кем выдан',
+            'date' => 'Когда выдан',
         ];
     }
 
@@ -64,5 +64,12 @@ class Passport extends \yii\db\ActiveRecord
     public function getEmployee()
     {
         return $this->hasOne(Employee::className(), ['id' => 'id_employee']);
+    }
+
+    public function getEmployeeFullName()
+    {
+        $employee = $this->hasOne(Employee::className(), ['id' => 'id_employee'])->one();
+        $full_name = $employee->last_name . ' ' . $employee->first_name . ' ' . $employee->middle_name;
+        return $full_name;
     }
 }

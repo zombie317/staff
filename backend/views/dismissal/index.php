@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\search\DismissalSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Dismissals';
+$this->title = 'Приказы об увольнении';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="dismissal-index">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Dismissal', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

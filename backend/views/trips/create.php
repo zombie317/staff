@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Trips */
 
-$this->title = 'Create Trips';
-$this->params['breadcrumbs'][] = ['label' => 'Trips', 'url' => ['index']];
+$this->title = 'Создать Приказ о командировке';
+$this->params['breadcrumbs'][] = ['label' => 'Командировки', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="trips-create">

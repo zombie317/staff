@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\TypeVacation */
 
-$this->title = 'Create Type Vacation';
-$this->params['breadcrumbs'][] = ['label' => 'Type Vacations', 'url' => ['index']];
+$this->title = 'Создать Вид отпуска';
+$this->params['breadcrumbs'][] = ['label' => 'Виды отпусков', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="type-vacation-create">
