@@ -8,6 +8,9 @@ use common\models\search\StaffingPlanSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use common\models\Position;
+use common\models\Department;
+use yii\helpers\ArrayHelper;
 
 /**
  * StaffingPlanController implements the CRUD actions for StaffingPlan model.
@@ -66,12 +69,20 @@ class StaffingPlanController extends Controller
     {
         $model = new StaffingPlan();
 
+        $position = Position::find()->all();
+        $position_list = ArrayHelper::map($position,'id', 'name');
+
+        $department = Department::find()->all();
+        $department_list = ArrayHelper::map($department,'id', 'name');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'position_list' => $position_list,
+            'department_list' => $department_list,
         ]);
     }
 
@@ -86,12 +97,20 @@ class StaffingPlanController extends Controller
     {
         $model = $this->findModel($id);
 
+        $position = Position::find()->all();
+        $position_list = ArrayHelper::map($position,'id', 'name');
+
+        $department = Department::find()->all();
+        $department_list = ArrayHelper::map($department,'id', 'name');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'position_list' => $position_list,
+            'department_list' => $department_list,
         ]);
     }
 
