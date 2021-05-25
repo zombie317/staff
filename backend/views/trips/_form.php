@@ -16,9 +16,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'date')->textInput() ?>
 
-    <?= $form->field($model, 'id_employee')->textInput() ?>
+    <?= $form->field($model, 'id_employee')->dropDownList($employee_list, ['prompt'=>'Выберите ...']) ?>
 
-    <?= $form->field($model, 'id_firm')->textInput() ?>
+    <?= $form->field($model, 'id_firm')->dropDownList($firm_list, ['prompt'=>'Выберите ...']) ?>
 
     <?= $form->field($model, 'place')->textInput(['maxlength' => true]) ?>
 

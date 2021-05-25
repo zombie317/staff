@@ -8,6 +8,9 @@ use common\models\search\TripsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use common\models\Employee;
+use common\models\Firm;
+use yii\helpers\ArrayHelper;
 
 /**
  * TripsController implements the CRUD actions for Trips model.
@@ -66,12 +69,24 @@ class TripsController extends Controller
     {
         $model = new Trips();
 
+        $employee = Employee::find()->all();
+        foreach ($employee as &$item)
+        {
+            $item->full_name = $item->getEmployeeFullName();
+        }
+        $employee_list = ArrayHelper::map($employee,'id', 'full_name');
+
+        $firm = Firm::find()->all();
+        $firm_list = ArrayHelper::map($firm,'id', 'short_name');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'employee_list' => $employee_list,
+            'firm_list' => $firm_list,
         ]);
     }
 
@@ -86,12 +101,24 @@ class TripsController extends Controller
     {
         $model = $this->findModel($id);
 
+        $employee = Employee::find()->all();
+        foreach ($employee as &$item)
+        {
+            $item->full_name = $item->getEmployeeFullName();
+        }
+        $employee_list = ArrayHelper::map($employee,'id', 'full_name');
+
+        $firm = Firm::find()->all();
+        $firm_list = ArrayHelper::map($firm,'id', 'short_name');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'employee_list' => $employee_list,
+            'firm_list' => $firm_list,
         ]);
     }
 
