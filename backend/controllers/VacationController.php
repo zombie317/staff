@@ -8,6 +8,10 @@ use common\models\search\VacationSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use common\models\Employee;
+use common\models\Firm;
+use common\models\TypeVacation;
+use yii\helpers\ArrayHelper;
 
 /**
  * VacationController implements the CRUD actions for Vacation model.
@@ -66,12 +70,28 @@ class VacationController extends Controller
     {
         $model = new Vacation();
 
+        $employee = Employee::find()->all();
+        foreach ($employee as &$item)
+        {
+            $item->full_name = $item->getEmployeeFullName();
+        }
+        $employee_list = ArrayHelper::map($employee,'id', 'full_name');
+
+        $firm = Firm::find()->all();
+        $firm_list = ArrayHelper::map($firm,'id', 'short_name');
+
+        $type = TypeVacation::find()->all();
+        $type_list = ArrayHelper::map($type,'id', 'name');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'employee_list' => $employee_list,
+            'firm_list' => $firm_list,
+            'type_list' => $type_list,
         ]);
     }
 
@@ -86,12 +106,28 @@ class VacationController extends Controller
     {
         $model = $this->findModel($id);
 
+        $employee = Employee::find()->all();
+        foreach ($employee as &$item)
+        {
+            $item->full_name = $item->getEmployeeFullName();
+        }
+        $employee_list = ArrayHelper::map($employee,'id', 'full_name');
+
+        $firm = Firm::find()->all();
+        $firm_list = ArrayHelper::map($firm,'id', 'short_name');
+
+        $type = TypeVacation::find()->all();
+        $type_list = ArrayHelper::map($type,'id', 'name');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'employee_list' => $employee_list,
+            'firm_list' => $firm_list,
+            'type_list' => $type_list,
         ]);
     }
 

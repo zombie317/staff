@@ -5,12 +5,24 @@ namespace common\models\search;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use common\models\Vacation;
+use common\models\Employee;
+use common\models\Firm;
 
 /**
  * VacationSearch represents the model behind the search form of `common\models\Vacation`.
+ *
+ * @property string $last_name
+ * @property string $first_name
+ * @property string $middle_name
+ * @property string $short_name
  */
 class VacationSearch extends Vacation
 {
+    public $last_name;
+    public $first_name;
+    public $middle_name;
+    public $short_name;
+
     /**
      * {@inheritdoc}
      */
@@ -19,6 +31,8 @@ class VacationSearch extends Vacation
         return [
             [['id', 'id_employee', 'id_firm', 'id_type_vacation', 'quantity_days'], 'integer'],
             [['number', 'date', 'date_start', 'date_end', 'article'], 'safe'],
+            [['last_name', 'first_name', 'middle_name'], 'safe'],
+            [['short_name'], 'safe'],
         ];
     }
 
@@ -40,13 +54,31 @@ class VacationSearch extends Vacation
      */
     public function search($params)
     {
-        $query = Vacation::find();
+        $query = Vacation::find()
+            ->joinWith(['employee'])
+            ->joinWith(['firm']);
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
+        $dataProvider->sort->attributes['last_name'] = [
+            'asc' => [Employee::tableName().'.last_name' => SORT_ASC],
+            'desc' => [Employee::tableName().'.last_name' => SORT_DESC],
+        ];
+        $dataProvider->sort->attributes['first_name'] = [
+            'asc' => [Employee::tableName().'.first_name' => SORT_ASC],
+            'desc' => [Employee::tableName().'.first_name' => SORT_DESC],
+        ];
+        $dataProvider->sort->attributes['middle_name'] = [
+            'asc' => [Employee::tableName().'.middle_name' => SORT_ASC],
+            'desc' => [Employee::tableName().'.middle_name' => SORT_DESC],
+        ];
+        $dataProvider->sort->attributes['short_name'] = [
+            'asc' => [Firm::tableName().'.short_name' => SORT_ASC],
+            'desc' => [Firm::tableName().'.short_name' => SORT_DESC],
+        ];
 
         $this->load($params);
 
@@ -69,7 +101,11 @@ class VacationSearch extends Vacation
         ]);
 
         $query->andFilterWhere(['ilike', 'number', $this->number])
-            ->andFilterWhere(['ilike', 'article', $this->article]);
+            ->andFilterWhere(['ilike', 'article', $this->article])
+            ->andFilterWhere(['like', 'LOWER(last_name)', mb_strtolower($this->last_name)])
+            ->andFilterWhere(['like', 'LOWER(first_name)', mb_strtolower($this->first_name)])
+            ->andFilterWhere(['like', 'LOWER(middle_name)', mb_strtolower($this->middle_name)])
+            ->andFilterWhere(['like', 'LOWER(short_name)', mb_strtolower($this->short_name)]);
 
         return $dataProvider;
     }

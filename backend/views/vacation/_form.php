@@ -16,11 +16,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'date')->textInput() ?>
 
-    <?= $form->field($model, 'id_employee')->textInput() ?>
+    <?= $form->field($model, 'id_employee')->dropDownList($employee_list, ['prompt'=>'Выберите ...']) ?>
 
-    <?= $form->field($model, 'id_firm')->textInput() ?>
+    <?= $form->field($model, 'id_firm')->dropDownList($firm_list, ['prompt'=>'Выберите ...']) ?>
 
-    <?= $form->field($model, 'id_type_vacation')->textInput() ?>
+    <?= $form->field($model, 'id_type_vacation')->dropDownList($type_list, ['prompt'=>'Выберите ...']) ?>
 
     <?= $form->field($model, 'date_start')->textInput() ?>
 
